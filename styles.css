@@ -1,51 +1,165 @@
+/* Importiere die Schriftarten */
+@import url('https://fonts.googleapis.com/css2?family=Garamond:wght@400;700&family=Nunito:wght@300;400&display=swap');
+
+/* Farbvariablen */
+:root {
+  --color-primary: #7b4d35;
+  --color-secondary: #c7b03e;
+}
+
+/* Allgemeine Stile */
 body {
   margin: 0;
   padding: 0;
-  font-family: 'EB Garamond', serif;
-  color: #7b4d35;
+  font-family: 'Garamond', serif;
+  background: url('/Users/josefinetheden-schow/jose/images/weinberge.png') no-repeat center 40vh;
+  background-size: contain;
+  background-attachment: scroll;
+  color: var(--color-primary);
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  min-height: 200vh;
   text-align: center;
-  height: 100vh;
-  overflow: hidden;
+  padding-top: 20vh;
 }
 
-.background-container {
-  background: url(./images/jose-picture.png) center;
-  background-size: cover;
-  position: absolute;
-  top: 30vh;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
+@media (max-width: 768px) {
+  body {
+    background-size: cover;
+    background-position: center 50vh; /* Positionierung des Bildes weiter unten */
+  }
 }
 
+@media (max-width: 480px) {
+  body {
+    background-size: cover;
+    background-position: center 50vh; /* Positionierung des Bildes weiter unten */
+  }
+}
+
+/* Stil für den gesamten Inhalt */
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  margin: auto;
-  z-index: 2;
-  padding-bottom: 5rem;
+  margin-top: 25vh; /* Verschiebt den Inhalt weiter nach unten */
 }
 
-.coming-soon {
+.event-details .names {
   font-family: 'Garamond', serif;
-  font-weight: bold;
-  font-size: 2rem;
-  font-weight: bold;
-  color: #c7b03e;
-  margin-bottom: 7rem;
-  letter-spacing: 0.4rem;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--color-primary);
+  letter-spacing: 0.8rem;
+  margin-bottom: 4rem;
 }
 
-.names {
+.event-details .names span {
+  font-size: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .event-details .names {
+    font-size: 1.5rem;
+  }
+
+  .event-details .names span {
+    font-size: 2.2rem;
+    letter-spacing: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .event-details .names {
+    font-size: 1rem;
+  }
+
+  .event-details .names span {
+    font-size: 1.5rem;
+    letter-spacing: 0.7rem;
+  }
+}
+
+.event-details .date,
+.event-details .location {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
   font-size: 1rem;
-  font-weight: light;
-  color: #7b4d35;
-  letter-spacing: 0.8rem;
-  margin-bottom: 3rem;
+  color: var(--color-primary);
+  letter-spacing: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .event-details .date,
+  .event-details .location {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .event-details .date,
+  .event-details .location {
+    font-size: 0.7rem;
+  }
+}
+
+nav.tabs-underlined {
+  position: fixed;
+  top: 1rem;
+  width: 85%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  z-index: 10;
+  font-style: italic; /* Kursivschrift */
+}
+
+.tabs-underlined .tab-underlined {
+  color: var(--color-primary);
+  padding: 8px;
+  margin: 0 16px;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 4px solid transparent;
+}
+
+.tabs-underlined .tab-underlined.active {
+  opacity: 1;
+  border-bottom: 3px solid var(--color-secondary);
+}
+
+nav a:hover {
+  color: #b1804d;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  min-width: 160px;
+}
+
+.dropdown-content a {
+  color: var(--color-primary);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .tab-underlined {
+  border-bottom: 3px solid var(--color-secondary);
 }
